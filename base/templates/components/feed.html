@@ -1,0 +1,27 @@
+{% load static %}
+
+<div class="feed">
+  {% for room in rooms %}
+  <div class="feed-box">
+    <div class="feed-content">
+      <img
+        src="{% static 'assets/dummy/guit4.jpg' %} "
+        width="270"
+        alt="content thumbnail"
+      />
+    </div>
+    <div class="feed-badge">
+      <p><a href='{% url "room" room.id %}'>{{room.name}}</a></p>
+      <p>{{room.host.username|title}}</p>
+      <a href='{% url "user-profile" room.host.id %}'>
+        <span>24M views </span> {{room.created|timesince}} ago
+      </a>
+      {% if request.user == room.host %}
+      <a href='{% url "update-room" room.id %}' class="">Update</a>
+      <a href='{% url "delete-room" room.id %}' class="">Delete</a>
+      {% endif %}
+    </div>
+  </div>
+
+  {% endfor %}
+</div>

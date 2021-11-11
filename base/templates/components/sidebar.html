@@ -1,0 +1,52 @@
+<div class="sidebar">
+  {% include 'components/logo.html'%}
+  <ul>
+    <li>
+      <i class="fas fa-plus-square"></i>
+      <a href='{% url "create-room" %}' class="sidebar-btn"> New stream</a>
+    </li>
+    <li>
+      <i class="fas fa-microphone"></i>
+      <a href='{% url "create-room" %}' class="sidebar-btn"> New cypher</a>
+    </li>
+    <li>
+      <i class="fas fa-drum"></i>
+      <a href='{% url "create-room" %}' class="sidebar-btn"> New beat</a>
+    </li>
+    <li>
+      <i class="fas fa-video"></i>
+      <a href="/" class="sidebar-btn"> My streams</a>
+    </li>
+    <!-- <li>
+      <a href="/" class="sidebar-btn"
+        ><i class="fas fa-play"></i> My playlists</a
+      >
+    </li> -->
+    <li>
+      <i class="fas fa-heart"></i>
+      <a href="/" class="sidebar-btn"> My favorites</a>
+    </li>
+    <li>
+      <i class="fas fa-users"></i>
+      <a href="/" class="sidebar-btn"> My audience</a>
+    </li>
+    <li>
+      <i class="fab fa-app-store-ios"></i>
+      <i class="fab fa-google-play"></i>
+      <a href="/" class="sidebar-btn"> Download App</a>
+    </li>
+  </ul>
+
+  {% if request.user.is_authenticated %}
+  <li>{% include 'components/user_badge.html' %}</li>
+  <!--  -->
+  {% else %}
+
+  <a href='{% url "login" %}' class="sidebar-btn"
+    ><i class="fas fa-sign-in-alt"></i> Login</a
+  >
+
+  <a href="/" class="sidebar-btn"><i class="fas fa-cog"></i> Settings</a>
+
+  {% endif %}
+</div>

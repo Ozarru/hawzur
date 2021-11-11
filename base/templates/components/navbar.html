@@ -1,0 +1,27 @@
+{% load static %}
+
+<div class="navbar">
+
+  <form method='GET' action='{% url "home" %}'>
+    {% csrf_token %}
+    {{form.as_p}}
+    <label>
+      <input type='text' name='q' placeholder="Search..."> </input>
+      <i class="fas fa-search"></i>
+    </label>
+  </form>
+
+  <ul>
+    <li><a href="/" class="btn"><i class="fas fa-video"></i> Start stream</a></li>
+    <li><a href="/"><i class="far fa-comments"></i></a></li>
+    <li><a href="/"><i class="fas fa-bell"></i></a></li>
+    <li>
+      <img
+        src="{% static 'assets/logo.png' %}"
+        width="26"
+        alt="User Profile Picture"
+      /></li>
+    <!-- <li>{% include 'components/user_badge.html' %} </li> -->
+  </ul>
+  
+</div>

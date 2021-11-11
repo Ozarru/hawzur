@@ -1,0 +1,23 @@
+{% load static %} {% if request.user.is_authenticated %}
+<div class="user-badge">
+  <a href='{% url "user-profile" request.user.id %}'>
+    <div class="profile-pic">
+      <img
+        src="{% static 'assets/lady.jpg' %}"
+        width="48"
+        alt="User Profile Picture"
+      />
+
+      <p>
+        <strong>{{request.user.username|title}}</strong>
+        <span>@{{request.user}}</span>
+      </p>
+    </div>
+  </a>
+  <p><a href='{% url "home" %}' class="btn-filled">Settings</a></p>
+  <br />
+  <p><a href='{% url "logout" %}' class="btn-outlined">Logout</a></p>
+</div>
+{% else %}
+<a href='{% url "login" %}'>Login</a>
+{% endif %}

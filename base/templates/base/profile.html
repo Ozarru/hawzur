@@ -1,0 +1,10 @@
+{% extends 'main.html' %}
+<!--  -->
+{% block content %}
+<h1>{{user.username}}</h1>
+<div class="profile-container">
+  <div>{% include 'components/topics.html' %}</div>
+  <div>{% include 'components/feed.html' %}</div>
+  <div>{% include 'components/activity.html' %}</div>
+</div>
+{% endblock %}

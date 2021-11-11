@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+<!--  -->
+{% block content %}
+<div class="home-container">
+  <!-- sidebar------------------------------------------------------------------------->
+  <div class="sidebar-container">{% include 'components/sidebar.html'%}</div>
+
+  <!-- feed------------------------------------------------------------------------->
+  <div class="main-container">
+    {% include 'components/navbar.html'%} {% include 'components/feed.html'%}
+  </div>
+</div>
+
+{% endblock %}
